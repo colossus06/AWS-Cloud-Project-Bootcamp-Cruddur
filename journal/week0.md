@@ -4,25 +4,35 @@
 
 ### Install and Verify AWS CLI
 
-I have already aws cli and all i had to do is to verify the version.
+I created `.gitpod.yml` file and configured to persist aws cli and restarted the gitpod
 
-![image](https://user-images.githubusercontent.com/96833570/220194729-05f4a072-738c-4148-b8a4-8a84c16fa800.png)
+![image](https://user-images.githubusercontent.com/96833570/220199484-771bfa59-86a8-4e80-b71c-cea8b8d3c2e2.png))
 
 
 ### Generate AWS Credentials
 
-I had already created an IAM admin and configured the credentials. Verified by:
+I created an IAM admin and configured the credentials.
 
-`ls C:\Users\PC\.aws\`
+![image](https://user-images.githubusercontent.com/96833570/220199856-266ff98f-79f4-4a17-bf57-2442ca007c68.png)
 
-![image](https://user-images.githubusercontent.com/96833570/220194900-bce6c646-8306-4a2b-9023-47cd4c09b609.png)
+
+
+
 
 
 ### Create a Budget
 
-I have created a budget and an sns topic. I got the `AWS Budget Notification `email asap.
+## Calculating the monthly budget
+
+![image](https://user-images.githubusercontent.com/96833570/220199254-ba133c68-a3a4-4ad2-bd7f-980a5fb2f78b.png)
+
+
+#### UI
 
 ![image](https://user-images.githubusercontent.com/96833570/220195204-bd6a0de0-d5d4-43e0-acf8-dfe82055064a.png)
+
+
+#### CLI
 
 I excercised creating another one and but with cli this time using [official documentation](https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html) and [week 0 video](https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=16&ab_channel=ExamPro).
 
@@ -32,6 +42,39 @@ I created the following files in `aws/json` dir:
 * budget.json
 * notifications-with-subscribers.json
 
+**creating a budget**
+
+```
+aws budgets create-budget \
+    --account-id $ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
+```
+
+![image](https://user-images.githubusercontent.com/96833570/220205470-48942682-ef9b-4aa3-a78f-005575db9340.png)
+
+**Creating sns topic**
+
+```
+aws sns subscribe \
+    --topic-arn="arn:aws:sns:us-east-1:782114400256:billing-alarm-cli" \
+    --protocol=email \
+    --notification-endpoint=topcug@devtechops.dev
+ ```
+
+![image](https://user-images.githubusercontent.com/96833570/220206808-f16100dd-f20c-424c-b6f7-8328fd1bff57.png)
+
+
+Confirmed the subscription
+
+![image](https://user-images.githubusercontent.com/96833570/220206794-478afc7b-b86c-4fe0-a86c-ff3532aac18f.png)
+
+
+**creating an alarm**
+
+`aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json`
+
+![image](https://user-images.githubusercontent.com/96833570/220207777-fe343926-1ff6-44d5-9282-b272fd568efe.png)
 
 
 ### Recreate Logical Architectural Deisgn
@@ -42,4 +85,15 @@ Lucid Charts Share Link
 
 ```
 aws sts get-caller-identity
+
+aws sts get-caller-identity --query Account --output text
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+env | grep ACCOUNT_ID
+gp env ACCOUNT_ID="account-id"
 ```
+
+## refs
+
+[sns subscribe cli](https://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html#examples)
+[put-metric-alarm cli](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
