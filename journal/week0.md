@@ -24,7 +24,10 @@ I have created a budget and an sns topic. I got the `AWS Budget Notification `em
 
 ![image](https://user-images.githubusercontent.com/96833570/220195204-bd6a0de0-d5d4-43e0-acf8-dfe82055064a.png)
 
-I excercised creating another one and but with cli this time.
+I excercised creating another one and but with cli this time using [official documentation](https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html) and [week 0 video](https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=16&ab_channel=ExamPro).
+
+
+
 
 ### Recreate Logical Architectural Deisgn
 
