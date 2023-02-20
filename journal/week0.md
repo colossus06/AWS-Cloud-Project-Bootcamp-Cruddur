@@ -77,9 +77,12 @@ Confirmed the subscription
 ![image](https://user-images.githubusercontent.com/96833570/220207777-fe343926-1ff6-44d5-9282-b272fd568efe.png)
 
 
-### Recreate Logical Architectural Deisgn
+### Create an architectural diagram the CI/CD logical pipeline in Lucid Charts
 
 Lucid Charts Share Link
+
+
+### Open a support ticket and request a service limit
 
 #### Takeaways
 
