@@ -27,8 +27,19 @@ I have created a budget and an sns topic. I got the `AWS Budget Notification `em
 I excercised creating another one and but with cli this time using [official documentation](https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html) and [week 0 video](https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=16&ab_channel=ExamPro).
 
 
+I created the following files in `aws/json` dir:
+* alarm-config.json
+* budget.json
+* notifications-with-subscribers.json
+
 
 
 ### Recreate Logical Architectural Deisgn
 
 Lucid Charts Share Link
+
+#### Takeaways
+
+```
+aws sts get-caller-identity
+```
