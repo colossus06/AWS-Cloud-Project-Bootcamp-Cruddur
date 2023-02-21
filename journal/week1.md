@@ -72,6 +72,12 @@ cd ..
 docker-compose up
 ```
 
+My terminal got hang up. I restarted my gitpod.
+
+![image](https://user-images.githubusercontent.com/96833570/220440069-77da608d-5bec-4c99-9e6b-308c98a7167a.png)
+
+
+
 #### Takeaways
 
 ```
