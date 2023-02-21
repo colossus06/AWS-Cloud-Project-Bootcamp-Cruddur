@@ -1,5 +1,20 @@
 # Week 0 — Billing and Architecture
 
+
+
+### Summary: 
+
+Aws cli, budget, meter-billing:
+
+* I installed and configured aws cli using gitpod.yml
+* Calculated the monthly/yearly budget of t2.micro
+* Created a budget, sns topic and alarm on via UI and CLI
+
+Architectural design, EventBridge
+* Recreated the logical diagram of cruddur on lucid.app
+* I created an sns topic and enabled email subscription to track service health issue using EventBridge.
+
+
 ## Required Homework/Tasks
 
 ### Install and Verify AWS CLI
@@ -83,7 +98,7 @@ Confirmed the subscription
 ![image](https://user-images.githubusercontent.com/96833570/220344938-96d760a7-3311-4b75-81cf-c8bf0974926c.png)
 
 
-[Lucid Charts Share Link](https://lucid.app/lucidchart/61c14870-6ad9-486e-868a-04f85b5bc501/edit?beaconFlowId=360BB951A1596C0F&invitationId=inv_8ec00958-a2e7-4f8c-b61a-f9384f082d8b&page=0_0#)
+[Lucid Charts Share Link](https://lucid.app/lucidchart/61c14870-6ad9-486e-868a-04f85b5bc501/edit?viewport_loc=-1196%2C43%2C2994%2C1437%2C0_0&invitationId=inv_8ec00958-a2e7-4f8c-b61a-f9384f082d8b)
 
 ### Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue
 
@@ -104,7 +119,9 @@ I created an sns topic and enabled email subscription on this topic. After confi
 ![image](https://user-images.githubusercontent.com/96833570/220342924-3c8e15ec-6824-4dc8-80e6-69b26ad50126.png)
 
 
+___
 
+___
 
 #### Takeaways
 
