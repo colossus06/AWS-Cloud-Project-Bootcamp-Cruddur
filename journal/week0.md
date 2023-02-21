@@ -79,10 +79,32 @@ Confirmed the subscription
 
 ### Create an architectural diagram the CI/CD logical pipeline in Lucid Charts
 
-Lucid Charts Share Link
+
+![image](https://user-images.githubusercontent.com/96833570/220344938-96d760a7-3311-4b75-81cf-c8bf0974926c.png)
 
 
-### Open a support ticket and request a service limit
+[Lucid Charts Share Link](https://lucid.app/lucidchart/61c14870-6ad9-486e-868a-04f85b5bc501/edit?beaconFlowId=360BB951A1596C0F&invitationId=inv_8ec00958-a2e7-4f8c-b61a-f9384f082d8b&page=0_0#)
+
+### Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue
+
+I created an sns topic and enabled email subscription on this topic. After confirming subscription, created an event bridge rule to track/monitor AWS Health events.
+
+![image](https://user-images.githubusercontent.com/96833570/220341439-7e5f7ebe-7739-4723-affb-9e1045b8eb80.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220342238-7a066082-23c3-44e7-9c79-563aa2e7d583.png)
+
+
+```
+{
+  "source": ["aws.health"],
+  "detail-type": ["AWS Health Event"]
+}
+```
+
+![image](https://user-images.githubusercontent.com/96833570/220342924-3c8e15ec-6824-4dc8-80e6-69b26ad50126.png)
+
+
+
 
 #### Takeaways
 
@@ -90,8 +112,10 @@ Lucid Charts Share Link
 aws sts get-caller-identity
 
 aws sts get-caller-identity --query Account --output text
+
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+
 env | grep ACCOUNT_ID
 gp env ACCOUNT_ID="account-id"
 ```
@@ -99,4 +123,6 @@ gp env ACCOUNT_ID="account-id"
 ## refs
 
 [sns subscribe cli](https://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html#examples)
+
 [put-metric-alarm cli](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
+
