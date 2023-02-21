@@ -85,6 +85,8 @@ My terminal got hang up. I restarted my gitpod.
 #identify what process id is using a port
 lsof -P -i :5000
 
+container escape// more on this
+
 
 
 ```
