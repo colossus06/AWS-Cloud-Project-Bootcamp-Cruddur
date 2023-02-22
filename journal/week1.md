@@ -150,6 +150,23 @@ Pushed the backend-flask to dockerhub:
 
 ### Use multi-stage building for a Dockerfile build
 
+### Implement a healthcheck in the V3 Docker compose file
+
+My frontend container was unhealthy in a couple tries. I attached a shell and saw that curl wasn't installed on it, used `wget` instead.
+
+![image](https://user-images.githubusercontent.com/96833570/220691892-d52eebca-f314-404b-b6b4-1574d037d97e.png)
+
+```
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+      interval: 30s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
+```
+
+![image](https://user-images.githubusercontent.com/96833570/220697149-a8bc11c8-9c5f-4c07-baa4-82bc5d9da421.png)
+
 
 #### Takeaways
 
