@@ -1,5 +1,8 @@
 # Week 1 — App Containerization
 
+### Summary
+
+* Installed postgressql client to gitpod
 
 
 I added the following to `app.py`
@@ -77,6 +80,75 @@ My terminal got hang up. I restarted my gitpod.
 ![image](https://user-images.githubusercontent.com/96833570/220440069-77da608d-5bec-4c99-9e6b-308c98a7167a.png)
 
 ![image](https://user-images.githubusercontent.com/96833570/220456784-174d49c4-9a19-4eed-97c3-9d0467252369.png)
+
+
+### Creating the notification feature
+
+#### Backend
+
+Edited the open api file, app.py and created `notifications_activities.py` file on service dir.
+
+![image](https://user-images.githubusercontent.com/96833570/220624279-9f5aec06-475e-4881-897a-f5a246f650ea.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/220623834-8a268924-2c6c-499c-a07d-ff892f75673d.png)
+
+
+#### Frontend
+
+![image](https://user-images.githubusercontent.com/96833570/220626642-68f52f34-08f6-4518-bfbb-83d03720ba4f.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/220626393-e22c941b-4811-4082-b166-a0d95aeaaeb6.png)
+
+After a little more adjustment:
+
+![image](https://user-images.githubusercontent.com/96833570/220627194-6af1a9f7-c733-4d5b-b6a8-95264aadda1d.png)
+
+
+Uploaded the open-api.yml file on swagger.io:
+
+![image](https://user-images.githubusercontent.com/96833570/220629917-724f2fdd-9a32-45b8-bafa-80be68f0f571.png)
+
+### Security considerations
+
+Scanned our app with Synk
+
+![image](https://user-images.githubusercontent.com/96833570/220627730-9eb970ab-56fd-43d6-99db-5a72395f8da3.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220627780-adb576c2-db3f-4af4-b98c-1797aa8f0f42.png)
+
+
+### Run DynamoDB Local Container and ensure it works
+I used [these codes](https://github.com/100DaysOfCloud/challenge-dynamodb-local):
+
+![image](https://user-images.githubusercontent.com/96833570/220646019-3c96fba0-1277-4ad5-88c5-7ff96fc1be88.png)
+
+```
+aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
+
+```
+
+### Psql
+
+
+![image](https://user-images.githubusercontent.com/96833570/220661708-ea81babf-9d10-4ce8-a7c8-00f88bba3719.png)
+
+`psql -Upostgres --host localhost`
+
+![image](https://user-images.githubusercontent.com/96833570/220666017-b8e8fd22-9dd8-4273-aebe-7b9b70d529fe.png)
+
+### Push and tag a image to DockerHub
+
+![image](https://user-images.githubusercontent.com/96833570/220670230-9f7c1ae8-e0fc-46ad-bf06-c6ec32d9d69c.png)
+
+Pushed the backend-flask to dockerhub:
+
+![image](https://user-images.githubusercontent.com/96833570/220670639-d56106c6-0cb4-48a5-9c74-9359e8c19e07.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220670772-fd423707-2799-46b0-8848-860b72cff2cf.png)
+
+### Use multi-stage building for a Dockerfile build
 
 
 #### Takeaways
