@@ -103,6 +103,22 @@ After a little more adjustment:
 ![image](https://user-images.githubusercontent.com/96833570/220627194-6af1a9f7-c733-4d5b-b6a8-95264aadda1d.png)
 
 
+Uploaded the open-api.yml file on swagger.io:
+
+![image](https://user-images.githubusercontent.com/96833570/220629917-724f2fdd-9a32-45b8-bafa-80be68f0f571.png)
+
+### Security considerations
+
+Scanned our app with Synk
+
+![image](https://user-images.githubusercontent.com/96833570/220627730-9eb970ab-56fd-43d6-99db-5a72395f8da3.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220627780-adb576c2-db3f-4af4-b98c-1797aa8f0f42.png)
+
+
+
+
+
 #### Takeaways
 
 ```
