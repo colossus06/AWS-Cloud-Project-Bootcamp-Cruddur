@@ -79,6 +79,30 @@ My terminal got hang up. I restarted my gitpod.
 ![image](https://user-images.githubusercontent.com/96833570/220456784-174d49c4-9a19-4eed-97c3-9d0467252369.png)
 
 
+### Creating the notification feature
+
+#### Backend
+
+Edited the open api file, app.py and created `notifications_activities.py` file on service dir.
+
+![image](https://user-images.githubusercontent.com/96833570/220624279-9f5aec06-475e-4881-897a-f5a246f650ea.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/220623834-8a268924-2c6c-499c-a07d-ff892f75673d.png)
+
+
+#### Frontend
+
+![image](https://user-images.githubusercontent.com/96833570/220626642-68f52f34-08f6-4518-bfbb-83d03720ba4f.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/220626393-e22c941b-4811-4082-b166-a0d95aeaaeb6.png)
+
+After a little more adjustment:
+
+![image](https://user-images.githubusercontent.com/96833570/220627194-6af1a9f7-c733-4d5b-b6a8-95264aadda1d.png)
+
+
 #### Takeaways
 
 ```
