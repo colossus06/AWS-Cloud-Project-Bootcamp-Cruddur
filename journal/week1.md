@@ -1,5 +1,8 @@
 # Week 1 — App Containerization
 
+### Summary
+
+* Installed postgressql client to gitpod
 
 
 I added the following to `app.py`
@@ -116,7 +119,36 @@ Scanned our app with Synk
 ![image](https://user-images.githubusercontent.com/96833570/220627780-adb576c2-db3f-4af4-b98c-1797aa8f0f42.png)
 
 
+### Run DynamoDB Local Container and ensure it works
+I used [these codes](https://github.com/100DaysOfCloud/challenge-dynamodb-local):
 
+![image](https://user-images.githubusercontent.com/96833570/220646019-3c96fba0-1277-4ad5-88c5-7ff96fc1be88.png)
+
+```
+aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
+
+```
+
+### Psql
+
+
+![image](https://user-images.githubusercontent.com/96833570/220661708-ea81babf-9d10-4ce8-a7c8-00f88bba3719.png)
+
+`psql -Upostgres --host localhost`
+
+![image](https://user-images.githubusercontent.com/96833570/220666017-b8e8fd22-9dd8-4273-aebe-7b9b70d529fe.png)
+
+### Push and tag a image to DockerHub
+
+![image](https://user-images.githubusercontent.com/96833570/220670230-9f7c1ae8-e0fc-46ad-bf06-c6ec32d9d69c.png)
+
+Pushed the backend-flask to dockerhub:
+
+![image](https://user-images.githubusercontent.com/96833570/220670639-d56106c6-0cb4-48a5-9c74-9359e8c19e07.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220670772-fd423707-2799-46b0-8848-860b72cff2cf.png)
+
+### Use multi-stage building for a Dockerfile build
 
 
 #### Takeaways
