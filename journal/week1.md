@@ -171,11 +171,11 @@ Pushed the backend-flask to dockerhub:
 
 ### Build and run the app locally
 
-I could make frontend and backend integration. I started a simple flask and react app just to see how can i display backend data on port 3000.
+I couldn't make cruddur's front and backend integration. So, i started a simple flask and react app just to see how can i display backend data on port 3000.
 
 ![image](https://user-images.githubusercontent.com/96833570/220901053-5c6f8cca-26d5-47c0-b858-b42e5c824830.png)
 
-Unfortunately i couldnt work react and flask run locally even after one and a half day.
+
 
 #### Multistage dockerfile/get the same containers running outside of Gitpod / Codespaces
 
