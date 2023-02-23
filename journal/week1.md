@@ -120,6 +120,7 @@ Scanned our app with Synk
 
 
 ### Run DynamoDB Local Container and ensure it works
+
 I used [these codes](https://github.com/100DaysOfCloud/challenge-dynamodb-local):
 
 ![image](https://user-images.githubusercontent.com/96833570/220646019-3c96fba0-1277-4ad5-88c5-7ff96fc1be88.png)
@@ -148,7 +149,13 @@ Pushed the backend-flask to dockerhub:
 
 ![image](https://user-images.githubusercontent.com/96833570/220670772-fd423707-2799-46b0-8848-860b72cff2cf.png)
 
-### Use multi-stage building for a Dockerfile build
+### Use multi-stage building for a Dockerfile build and run the app locally
+
+I could make frontendt and backend integration. I started a simple flask and react app kust to see how can i display backend data on port 3000.
+
+![image](https://user-images.githubusercontent.com/96833570/220901053-5c6f8cca-26d5-47c0-b858-b42e5c824830.png)
+
+Unfortunaley i couldnt work react and flask run locally even after one and a half day.
 
 ### Implement a healthcheck in the V3 Docker compose file
 
