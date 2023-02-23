@@ -1,9 +1,29 @@
 # Week 1 — App Containerization
 
+![image](https://user-images.githubusercontent.com/96833570/220974392-3c15481b-f5b1-49c0-bf52-2c9f4d74765c.png)
+
+[lucid.app share link](https://lucid.app/lucidchart/61c14870-6ad9-486e-868a-04f85b5bc501/edit?invitationId=inv_8ec00958-a2e7-4f8c-b61a-f9384f082d8b&page=0_0#)
+
+
 ### Summary
 
-* Installed postgressql client to gitpod
+Cruddur
+* Cloned, containerized Application frontend/backend using dockerfiles  and `docker-compose.yml`.
+* Created `/api/activities/notifications` endpoint in flask
+* Wrote notifications page in react
 
+DB
+* Installed postgressql client to gitpod
+* Run, ensure DynamoDB Local Container and Postgres works.
+
+Homework Challenges
+* Run cruddur locally but couldn't integrate backend with frontend
+* Implement a healthcheck using wget in Docker compose file
+* Created a multistage dockerfile for a simple react app, containerized and pushed to dockerhub
+* Pulled this image and run on aws ec2
+
+
+### App Containerization
 
 I added the following to `app.py`
 
@@ -149,13 +169,49 @@ Pushed the backend-flask to dockerhub:
 
 ![image](https://user-images.githubusercontent.com/96833570/220670772-fd423707-2799-46b0-8848-860b72cff2cf.png)
 
-### Use multi-stage building for a Dockerfile build and run the app locally
+### Build and run the app locally
 
-I could make frontendt and backend integration. I started a simple flask and react app kust to see how can i display backend data on port 3000.
+I could make frontend and backend integration. I started a simple flask and react app just to see how can i display backend data on port 3000.
 
 ![image](https://user-images.githubusercontent.com/96833570/220901053-5c6f8cca-26d5-47c0-b858-b42e5c824830.png)
 
-Unfortunaley i couldnt work react and flask run locally even after one and a half day.
+Unfortunately i couldnt work react and flask run locally even after one and a half day.
+
+#### Multistage dockerfile/get the same containers running outside of Gitpod / Codespaces
+
+* I could run all the containers locally, but couldn't integrate the front and backends
+
+* I created a react app and run it locally, then dockerized it using node image.
+
+![image](https://user-images.githubusercontent.com/96833570/220913464-ad8537e4-c4b3-4ef8-8743-aaeccd8c9925.png)
+
+Tried to debug `syntaxerror unexpected token eslint-webpack-plugin` error. downgrading the plugin version or upgrading np didn't work. I experimented changing node version from 10 to 16.18 and it worked.
+
+![image](https://user-images.githubusercontent.com/96833570/220960543-2953c982-ceb7-4700-b574-43941f59af16.png)
+
+Then created a multistage dockerfile for react app. 
+
+![image](https://user-images.githubusercontent.com/96833570/220967038-2161808a-aee7-4f26-a32b-b456fa926ae5.png)
+
+Pushed this image to my dockerhub to test on aws
+
+### Launch an EC2 instance that has docker installed, and pull a container to demonstrate you can run your own docker processes.
+
+I started an ec2 with user data and verified that docker is running:
+
+![image](https://user-images.githubusercontent.com/96833570/220963085-6280815f-19d2-44c9-8cc5-c4f191f2d3f2.png)
+
+I named the image wrong but was able to reduce the image size considerable thanks to multi stage docker file
+
+![image](https://user-images.githubusercontent.com/96833570/220972876-b53cadc5-0434-4ab2-9837-a5407a59d35d.png)
+
+Pulled and run on ec2:
+
+![image](https://user-images.githubusercontent.com/96833570/220973281-cf01c203-cfc0-45a8-987d-47ce2abe0f07.png)
+
+![image](https://user-images.githubusercontent.com/96833570/220973706-cf81940d-1c72-4f06-9e86-de1a01ad074d.png)
+
+
 
 ### Implement a healthcheck in the V3 Docker compose file
 
