@@ -16,6 +16,8 @@ I created an xray group and sampling rule. Head over to the management console t
 
 ![image](https://user-images.githubusercontent.com/96833570/221546388-a468f71d-03bd-45a7-8f50-9a1df8b1ec58.png)
 
+When i'm done i commented out the code related to this section.
+
 
 ## Implementing Honeycomb
 
@@ -27,4 +29,15 @@ I created an xray group and sampling rule. Head over to the management console t
 
 
 ## Implementing CloudWatch Logs
+
+
+![image](https://user-images.githubusercontent.com/96833570/221552361-53cf39db-3401-4d5e-9859-2c322f06096b.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/221552703-2c3b192a-1c27-4fc6-a78a-862b18400ac2.png)
+
+When i'm done i commented out the code related to this section.
+
+
+
 
