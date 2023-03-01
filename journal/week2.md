@@ -28,7 +28,7 @@ When i'm done i commented out the code related to this section.
 ![image](https://user-images.githubusercontent.com/96833570/221415631-c6b5b6cb-0d7a-4a59-9562-45addef4befd.png)
 
 
-## Implementing CloudWatch Logs
+## Implementing CloudWatch Logs, install WatchTower, write a custom logger
 
 
 ![image](https://user-images.githubusercontent.com/96833570/221552361-53cf39db-3401-4d5e-9859-2c322f06096b.png)
@@ -37,6 +37,18 @@ When i'm done i commented out the code related to this section.
 ![image](https://user-images.githubusercontent.com/96833570/221552703-2c3b192a-1c27-4fc6-a78a-862b18400ac2.png)
 
 When i'm done i commented out the code related to this section.
+
+## Integrate Rollbar for Error Logging
+
+![image](https://user-images.githubusercontent.com/96833570/222068789-e59f32f8-d4a7-4b76-9dc1-bcbb0ed3a1b1.png)
+
+![image](https://user-images.githubusercontent.com/96833570/222069023-25b1fe39-178e-48c3-9420-cd389a58587e.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/222079701-37729416-1868-47e5-9507-92b980f75124.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/222079651-d896474a-c469-4af8-ba98-f9cd1065f10a.png)
 
 
 
