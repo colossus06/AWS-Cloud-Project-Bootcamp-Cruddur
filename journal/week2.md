@@ -1,6 +1,18 @@
 # Week 2 — Distributed Tracing
 
 
+### Summary
+
+Week 2 in a nutshell:
+
+* Integrated Open Telemetry (OTEL)  with backend using Honeycomb and monitored traces.
+* Integrated AWS X-Ray and X-Ray daemon within docker-compose, and monitored traces.
+* Integrated Rollbar and triggered an error an observe an error with Rollbar
+* Lastly installed WatchTower and wrote a custom logger. Monitored with CloudWatch.
+
+
+This week i worked with completely new tools and domains such as OTEL, AWS X-Ray, honeycomb, WatchTower, Rollbar.
+
 ## Implementing Xray
 
 I could run the app after a lot of debug with gitpod. 
