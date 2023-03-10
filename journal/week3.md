@@ -40,3 +40,7 @@ Switched back to cognito to see my users in the pool before destroying the resou
 Implemented amplify and made sure the app is working again.
 
 ![image](https://user-images.githubusercontent.com/96833570/224272882-85d2a713-f863-47c1-bf98-483c11baca7b.png)
+
+After a great amount of debugging i came to the yaayy part on which i could see the error on the UI.
+
+![image](https://user-images.githubusercontent.com/96833570/224367240-97fd6984-4d5c-4339-8bcd-6835913daf2d.png)
