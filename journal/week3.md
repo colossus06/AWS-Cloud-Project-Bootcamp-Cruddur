@@ -44,3 +44,35 @@ Implemented amplify and made sure the app is working again.
 After a great amount of debugging i came to the yaayy part on which i could see the error on the UI.
 
 ![image](https://user-images.githubusercontent.com/96833570/224367240-97fd6984-4d5c-4339-8bcd-6835913daf2d.png)
+
+### Sign-in page
+
+After creating a user on the management console and `admin-set-user-password` command, i could sign in to the app.
+
+![image](https://user-images.githubusercontent.com/96833570/224422123-a4e81e74-882c-4cd2-9056-ba1f86806977.png)
+
+
+### Signup page
+
+![image](https://user-images.githubusercontent.com/96833570/224428341-2a823c37-3e2e-474d-a613-0501dc28ac34.png)
+
+![image](https://user-images.githubusercontent.com/96833570/224428361-95b7a76e-2a1d-4468-ba5f-b686a19e45a8.png)
+
+
+### Recovery Page
+
+
+![image](https://user-images.githubusercontent.com/96833570/224430140-7145f96e-eba2-4c86-9bff-c9c0059bd7f2.png)
+
+
+```
+
+aws cognito-idp list-user-pools --max-results 20
+aws sts get-caller-identity
+aws configure
+aws cognito-idp create-user-pool --pool-name MyUserPool
+aws cognito-idp admin-set-user-password --user-pool-id us-east-xx --password xxx --username john --permanent --region us-east-1
+```
+
+
+```
