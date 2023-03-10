@@ -35,3 +35,8 @@ Switched back to cognito to see my users in the pool before destroying the resou
 ![image](https://user-images.githubusercontent.com/96833570/222896718-c405315c-8e31-4f19-9097-0cbad340772b.png)
 
 
+### Starting week 3
+
+Implemented amplify and made sure the app is working again.
+
+![image](https://user-images.githubusercontent.com/96833570/224272882-85d2a713-f863-47c1-bf98-483c11baca7b.png)
