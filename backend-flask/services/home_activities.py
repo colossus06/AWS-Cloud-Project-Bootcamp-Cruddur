@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta, timezone
+
+from lib.db import pool
+
 class HomeActivities:
   def run():
     now = datetime.now(timezone.utc).astimezone()
@@ -41,4 +44,12 @@ class HomeActivities:
       'replies': []
     }
     ]
+
+    with pool.connection() as conn:
+      with conn.cursor() as cur:
+        cur.execute(sql)
+        # this will return a tuple
+        # the first field being the data
+        json = cur.fetchone()
+      return json[0]
     return results
