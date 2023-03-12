@@ -29,3 +29,6 @@ aws rds create-db-instance \
 `psql -Upostgres --host localhost`
 
 ![image](https://user-images.githubusercontent.com/96833570/224510346-51b81fc8-6076-4104-9a0f-bd9f97bfd152.png)
+
+![image](https://user-images.githubusercontent.com/96833570/224562141-b17a3ac9-c71c-41ec-959a-d44864bceda8.png)
+
