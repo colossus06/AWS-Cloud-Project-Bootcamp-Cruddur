@@ -31,3 +31,15 @@ The `/journal` directory contains
 - [ ] [Week 11](journal/week11.md)
 - [ ] [Week 12](journal/week12.md)
 - [ ] [Week 13](journal/week13.md)
+
+
+## General Troubleshooting
+
+```
+Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+```
+
+**Solution**: Run `git config --global core.protectNTFS false` and then clone the repo.
+
