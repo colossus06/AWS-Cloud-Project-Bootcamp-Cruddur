@@ -54,3 +54,25 @@ Now i could run db-setup script:
 
 ![image](https://user-images.githubusercontent.com/96833570/224684078-d22d0376-0ec7-4633-a7b6-3fe4c305e910.png)
 
+
+### Security group
+
+```
+export GITPOD_IP=$(curl icanhazip.com)
+gp env GITPOD_IP=$(curl icanhazip.com)
+```
+
+```
+export DB_SG_ID="sg-0b4c0bdc8b9f2110d" \
+gp env DB_SG_ID="sg-0b4c0bdc8b9f2110d" \
+export DB_SG_RULE_ID="sgr-0076bdf38773d6838" \
+gp env DB_SG_RULE_ID="sgr-0076bdf38773d6838"
+```
+Debugging `CIDR block /32 is malformed`:
+
+```
+aws ec2 modify-security-group-rules \
+    --group-id $DB_SG_ID \
+    --region $AWS_DEFAULT_REGION \
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
+```
