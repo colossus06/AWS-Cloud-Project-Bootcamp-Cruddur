@@ -32,3 +32,25 @@ aws rds create-db-instance \
 
 ![image](https://user-images.githubusercontent.com/96833570/224562141-b17a3ac9-c71c-41ec-959a-d44864bceda8.png)
 
+
+## db-drop
+
+I debugged `ERROR:  database "cruddur" is being accessed by other users DETAIL:  There are 4 other sessions using the database.` error as shown.
+
+![image](https://user-images.githubusercontent.com/96833570/224660250-1f422372-7f41-4e0c-92b2-e5730bbbb9f3.png)
+
+```
+select * from pg_stat_activity;
+
+select pg_terminate_backend(pid) 
+from pg_stat_activity
+where pid = '50';
+```
+
+Now i could run db-setup script:
+
+![image](https://user-images.githubusercontent.com/96833570/224660766-c8d6bd4b-d594-4c09-a8aa-cc59c88d263d.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/224684078-d22d0376-0ec7-4633-a7b6-3fe4c305e910.png)
+
