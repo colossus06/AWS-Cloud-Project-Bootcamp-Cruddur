@@ -74,5 +74,13 @@ Debugging `CIDR block /32 is malformed`:
 aws ec2 modify-security-group-rules \
     --group-id $DB_SG_ID \
     --region $AWS_DEFAULT_REGION \
-    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={Description=devcontainer,IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
 ```
+
+Since i  reached the usage limit on Gitpod, i setup a local dev environment with devcontainers and could succesfully provision RDS Instance/ Connect to RDS via devcontainers.
+
+![image](https://user-images.githubusercontent.com/96833570/224793344-46a20fc6-8722-41cd-8f4b-40cb015a5961.png)
+
+![image](https://user-images.githubusercontent.com/96833570/224793423-47dc8bec-7db4-4b8e-849e-ccd139b66374.png)
+
+
