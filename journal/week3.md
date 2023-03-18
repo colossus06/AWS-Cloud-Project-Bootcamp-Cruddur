@@ -81,4 +81,14 @@ aws cognito-idp admin-set-user-password --user-pool-id us-east-xx --password xxx
 ```
 
 
-```
+
+### Integrating cognito jwt server side verification
+
+This week i worked on backend implementation of cognito. I passed the header adn validated jwt. Then updated requirements.txt and initialized cognito_jwt_token
+
+
+![image](https://user-images.githubusercontent.com/96833570/226110535-ebe1603e-3ca6-44ae-9ddf-54a8f80a4537.png)
+
+![image](https://user-images.githubusercontent.com/96833570/226113369-bd1064b8-63ff-4bee-8219-744b395ba974.png)
+
+
