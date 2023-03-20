@@ -19,7 +19,7 @@ Flask-AWSCognito
 
 psycopg[binary]
 psycopg[pool]
-psycopg2
+psycopg2-binary
 
 boto3
 python-dateutil
