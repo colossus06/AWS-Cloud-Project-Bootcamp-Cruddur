@@ -15,8 +15,13 @@ watchtower
 #rollbar
 #blinker
 #rollbar
-
 Flask-AWSCognito
 
 psycopg[binary]
 psycopg[pool]
+psycopg2
+
+boto3
+python-dateutil
+
+momento
