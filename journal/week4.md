@@ -1,6 +1,6 @@
 # Week 4 — Postgres and RDS
 
-## Weekly outcomes
+## Weekly outcomes-Summary
 
 * Provision an RDS instance
 * Temporarily stop an RDS instance
@@ -69,12 +69,19 @@ I encountered another error and debugged error as shown:
 
 * `ERROR:  database "cruddur" is being accessed by other users DETAIL:  There are 4 other sessions using the database.` 
 
-```
+```sql
 select * from pg_stat_activity;
-
 select pg_terminate_backend(pid) 
 from pg_stat_activity
 where pid = '50';
+```
+
+Or you can delete all sessions other than yours:
+
+```sql
+SELECT pid, pg_terminate_backend(pid) 
+FROM pg_stat_activity 
+WHERE datname = current_database() AND pid <> pg_backend_pid();
 ```
 
 Now i could run db-setup script🎉:
@@ -144,6 +151,53 @@ SELECT * FROM activities;
 
 ## sql rds connection pooling
 I added `psycopg[binary]` and `psycopg[pool]` since i wanted to let my database handle multiple concurrent connections. Then i could use one reusable connection pool.
-15:30
-and some are long running and some aren't so like if you have a thousand
+
+## Week 4- Cognito Post Confirmation Lambda
+
+* I created a lambda and role for cruddur post confirmation. 
+* Added another layer to my lambda.
+* Added lambda trigger in cognito for post confirmation during user signup. 
+* Connected my lambda to a vpc and crea
+* Deleted my users to trigger the cloudwatch.
+
+
+Error: `AWS Lambda:The provided execution role does not have permissions to call DescribeNetworkInterfaces on EC2`
+
+Solution: I created and attached the following inline policy to deploy a Lambda into a VPC
+
+```aws
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:CreateNetworkInterface",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeInstances",
+        "ec2:AttachNetworkInterface"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+## Displaying prod users
+
+I ran db.setup script with `prod` argument. Connected to it with  the following command:
+
+```bash
+psql $PROD_CONNECTION_URL
+```
+
+And displayed all my users:
+
+```sql
+select * from users;
+```
+
+
+![image](https://user-images.githubusercontent.com/96833570/226624094-c7e1a845-d91b-4f89-8870-6a5de8c5338d.png)
+
 
