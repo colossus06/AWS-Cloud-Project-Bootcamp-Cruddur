@@ -1,9 +1,31 @@
 # Week 4 — Postgres and RDS
 
+## Weekly outcomes
 
-Debugging `An error occurred (InvalidParameterValue) when calling the CreateDBInstance operation: us-east-1 is not a valid availability zone.` error:
+* Provision an RDS instance
+* Temporarily stop an RDS instance
+* Remotely connect to RDS instance
+* Programmatically update a security group rule
+* Write several bash scripts for database operations
+* Operate common SQL commands
+* Create a schema SQL file by hand
+* Work with UUIDs and PSQL extensions
+* Implement a postgres client for python using a connection pool
+* Troubleshoot common SQL errors
+* Implement a Lambda that runs in a VPC and commits code to RDS
+* Work with PSQL json functions to directly return json from the database
+* Correctly sanitize parameters passed to SQL to execute
 
-```
+
+## RDS
+
+I started this week by debugging:
+
+* `An error occurred (InvalidParameterValue) when calling the CreateDBInstance operation: us-east-1 is not a valid availability zone.`
+
+I created rds instance using the following command.
+
+```bash
 aws rds create-db-instance \
   --db-instance-identifier cruddur-db-instance \
   --db-instance-class db.t3.micro \
@@ -26,7 +48,15 @@ aws rds create-db-instance \
   --no-deletion-protection
 ```
 
-`psql -Upostgres --host localhost`
+**Debugging another issue with postgres and docker**
+
+`Is the server running on that host and accepting tcp/ip connections? connection to server at "localhost" (127.0.0.1), port 5432 failed: connection refused (0x0000274d/10061) is the server running on that host and accepting tcp/ip connections?`
+
+I resolved this by adding `--host localhost` to my query. Also installed postgres on windows since i'm developing the app locally (yeah run out of credits🎈).
+
+```bash
+psql -Upostgres --host localhost
+```
 
 ![image](https://user-images.githubusercontent.com/96833570/224510346-51b81fc8-6076-4104-9a0f-bd9f97bfd152.png)
 
@@ -35,9 +65,9 @@ aws rds create-db-instance \
 
 ## db-drop
 
-I debugged `ERROR:  database "cruddur" is being accessed by other users DETAIL:  There are 4 other sessions using the database.` error as shown.
+I encountered another error and debugged error as shown:
 
-![image](https://user-images.githubusercontent.com/96833570/224660250-1f422372-7f41-4e0c-92b2-e5730bbbb9f3.png)
+* `ERROR:  database "cruddur" is being accessed by other users DETAIL:  There are 4 other sessions using the database.` 
 
 ```
 select * from pg_stat_activity;
@@ -47,35 +77,37 @@ from pg_stat_activity
 where pid = '50';
 ```
 
-Now i could run db-setup script:
-
-![image](https://user-images.githubusercontent.com/96833570/224660766-c8d6bd4b-d594-4c09-a8aa-cc59c88d263d.png)
-
-
-![image](https://user-images.githubusercontent.com/96833570/224684078-d22d0376-0ec7-4633-a7b6-3fe4c305e910.png)
+Now i could run db-setup script🎉:
 
 
 ### Security group
 
-```
+Now it's time to update sg dynamically. First i used the following env to set them, and then replaced with local ones.
+
+```bash
 export GITPOD_IP=$(curl icanhazip.com)
 gp env GITPOD_IP=$(curl icanhazip.com)
 ```
+I needed to export some othen vars such as security group id and rule.
 
-```
+```bash
 export DB_SG_ID="sg-0b4c0bdc8b9f2110d" \
 gp env DB_SG_ID="sg-0b4c0bdc8b9f2110d" \
 export DB_SG_RULE_ID="sgr-0076bdf38773d6838" \
 gp env DB_SG_RULE_ID="sgr-0076bdf38773d6838"
 ```
-Debugging `CIDR block /32 is malformed`:
+I got another error and debugged it by specifying region:
 
-```
+`CIDR block /32 is malformed`
+
+```bash
 aws ec2 modify-security-group-rules \
     --group-id $DB_SG_ID \
     --region $AWS_DEFAULT_REGION \
     --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={Description=devcontainer,IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
 ```
+
+**update on dev environment**
 
 Since i  reached the usage limit on Gitpod, i setup a local dev environment with devcontainers and could succesfully provision RDS Instance/ Connect to RDS via devcontainers.
 
@@ -83,4 +115,35 @@ Since i  reached the usage limit on Gitpod, i setup a local dev environment with
 
 ![image](https://user-images.githubusercontent.com/96833570/224793423-47dc8bec-7db4-4b8e-849e-ccd139b66374.png)
 
+**another update on dev environment**
+
+I moved on totally local dev environment and did all the steps for the third time.
+
+
+### SQL
+
+I operated common SQL commands and created scripts working locally on windows to
+* drop
+* create
+* connect the database cruddur.
+
+Also created a connection url string to ease db related workload, changed print colors to enhance shell script readability. My db-setup script is as shown:
+
+```sh
+source "$file_path/bin/db-drop"
+source "$file_path/bin/db-create"
+source "$file_path/bin/db-schema-load"
+source "$file_path/bin/db-seed"
+```
+
+You can see all the tables running the following after connecting to your database:
+
+```bash
+SELECT * FROM activities;
+```
+
+## sql rds connection pooling
+I added `psycopg[binary]` and `psycopg[pool]` since i wanted to let my database handle multiple concurrent connections. Then i could use one reusable connection pool.
+15:30
+and some are long running and some aren't so like if you have a thousand
 
