@@ -1,6 +1,6 @@
 # Week 4 — Postgres and RDS
 
-## Weekly outcomes
+## Weekly outcomes-Summary
 
 * Provision an RDS instance
 * Temporarily stop an RDS instance
