@@ -200,7 +200,4 @@ select * from users;
 
 ![image](https://user-images.githubusercontent.com/96833570/226624094-c7e1a845-d91b-4f89-8870-6a5de8c5338d.png)
 
-## Week 4 - Creating Activities
-
-Can't remember how much time i spent on this video but i gave it another shot. 
 
