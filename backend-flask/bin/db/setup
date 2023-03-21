@@ -9,10 +9,10 @@ printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
 
 file_path="/c/Users/PC/start/awscruddur/backend-flask"
 
-source "$file_path/bin/db-drop"
-source "$file_path/bin/db-create"
-source "$file_path/bin/db-schema-load"
-source "$file_path/bin/db-seed"
+source "$file_path/bin/db/drop"
+source "$file_path/bin/db/create"
+source "$file_path/bin/db/schema-load"
+source "$file_path/bin/db/seed"
 
 # source "$(readlink -f db-drop)"
 # source "$bin_path/db-create"
