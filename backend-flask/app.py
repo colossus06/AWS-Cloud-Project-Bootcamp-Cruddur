@@ -69,6 +69,17 @@ from flask import got_request_exception
 # tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
+frontend = 'http://localhost:4567'
+backend = 'http://localhost:3000'
+origins = [frontend, backend]
+cors = CORS(
+  app, 
+  resources={r"/api/*": {"origins": "*"}},
+  # headers=['Content-Type', 'Authorization'], 
+  # expose_headers='Authorization',
+  # methods="OPTIONS,GET,HEAD,POST",
+  supports_credentials=True
+)
 
 cognito_jwt_token = CognitoJwtToken(
   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
@@ -85,16 +96,8 @@ cognito_jwt_token = CognitoJwtToken(
 # RequestsInstrumentor().instrument()
 
 
-frontend = os.getenv('FRONTEND_URL')
-backend = os.getenv('BACKEND_URL')
-origins = [frontend, backend]
-cors = CORS(
-  app, 
-  resources={r"/api/*": {"origins": origins}},
-  headers=['Content-Type', 'Authorization'], 
-  expose_headers='Authorization',
-  methods="OPTIONS,GET,HEAD,POST"
-)
+
+
 
 # CloudWatch Logs -----
 #@app.after_request
@@ -128,7 +131,7 @@ cors = CORS(
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
-  user_handle  = 'andrewbrown'
+  user_handle  = 'simo'
   model = MessageGroups.run(user_handle=user_handle)
   if model['errors'] is not None:
     return model['errors'], 422
@@ -137,7 +140,7 @@ def data_message_groups():
 
 @app.route("/api/messages/@<string:handle>", methods=['GET'])
 def data_messages(handle):
-  user_sender_handle = 'andrewbrown'
+  user_sender_handle = 'simo'
   user_receiver_handle = request.args.get('user_reciever_handle')
 
   model = Messages.run(user_sender_handle=user_sender_handle, user_receiver_handle=user_receiver_handle)
@@ -150,7 +153,7 @@ def data_messages(handle):
 @app.route("/api/messages", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_create_message():
-  user_sender_handle = 'andrewbrown'
+  user_sender_handle = 'simo'
   user_receiver_handle = request.json['user_receiver_handle']
   message = request.json['message']
 
@@ -201,7 +204,7 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = 'andrewbrown'
+  user_handle  = 'simo'
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)

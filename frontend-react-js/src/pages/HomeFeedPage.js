@@ -1,7 +1,6 @@
 import './HomeFeedPage.css';
 import React from "react";
 
-//amplify
 import { Auth } from 'aws-amplify';
 
 import DesktopNavigation  from '../components/DesktopNavigation';
@@ -41,7 +40,6 @@ export default function HomeFeedPage() {
     }
   };
 
-  // check if we are authenicated
   const checkAuth = async () => {
     Auth.currentAuthenticatedUser({
       // Optional, By default is false. 
@@ -60,7 +58,7 @@ export default function HomeFeedPage() {
     })
     .catch((err) => console.log(err));
   };
-
+  
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
