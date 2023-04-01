@@ -1,25 +1,14 @@
 #! /usr/bin/bash
+set -e # stop if it fails at any point
 
-
-#echo "==== db-setup"
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="db-setup"
 printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
 
-file_path="/c/Users/PC/start/awscruddur/backend-flask"
+bin_path="$(realpath .)"
 
-source "$file_path/bin/db/drop"
-source "$file_path/bin/db/create"
-source "$file_path/bin/db/schema-load"
-source "$file_path/bin/db/seed"
-
-# source "$(readlink -f db-drop)"
-# source "$bin_path/db-create"
-# source "$bin_path/db-schema-load"
-# source "$bin_path/db-seed"
-
-# readlink -f db-drop
-# readlink -f db-create
-# readlink -f db-schema-load
-# readlink -f db-seed
+source "$bin_path/drop"
+source "$bin_path/create"
+source "$bin_path/schema-load"
+source "$bin_path/seed"
