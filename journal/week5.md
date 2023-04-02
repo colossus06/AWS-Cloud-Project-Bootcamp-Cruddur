@@ -49,3 +49,9 @@ cd ../ddb/
 
 ![seed](images/20230402200212.png)
 
+
+List cognito users :
+
+```bash
+aws cognito-idp list-users --user-pool-id congito-pool-id --limit 5
+```
