@@ -1,8 +1,9 @@
 -- this file was manually created
-INSERT INTO public.users (email, display_name, handle, cognito_user_id)
+INSERT INTO public.users (display_name, email, handle, cognito_user_id)
 VALUES
-  -- we can grab the cognito_user_id manually from the Congito Console
-  ('topcug@devtechops.dev', 'simo', 'simo' ,'5dde97c4-f1dc-4507-8ce8-42639d4f8dda');
+  ('simo','topcug@devtechops.dev' , 'simo' ,'MOCK'),
+  ('bayko','bayko@exampro.co' , 'bayko' ,'MOCK'),
+  ('Londo Mollari', 'lmollari@centari.com','londo','MOCK');
 
 INSERT INTO public.activities (user_uuid, message, expires_at)
 VALUES
