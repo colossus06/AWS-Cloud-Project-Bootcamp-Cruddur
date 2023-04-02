@@ -1,0 +1,17 @@
+flask
+flask-cors
+opentelemetry-api 
+opentelemetry-sdk 
+opentelemetry-exporter-otlp-proto-http 
+opentelemetry-instrumentation-flask 
+opentelemetry-instrumentation-requests
+setuptools
+watchtower
+Flask-AWSCognito
+psycopg[binary]
+psycopg[pool]
+psycopg2-binary
+psycopg2-pool
+boto3
+python-dateutil
+momento
