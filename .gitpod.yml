@@ -17,6 +17,7 @@ tasks:
     command: |
       export GITPOD_IP=$(curl icanhazip.com)
       source "$THEIA_WORKSPACE_ROOT/backend-flask/bin/rds-update-sgr"
+      
 
   - name: react-js
     command: |

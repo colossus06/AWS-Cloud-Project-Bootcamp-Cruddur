@@ -1,4 +1,0 @@
-#!/c/Python311/python
-
-import boto3
-import sys
