@@ -12,7 +12,7 @@ Started this week running the app locally, installing postgress and changing the
 Verified that dynamodb is running and created my first table:
 
 
-![](20230402172556.png)
+![bad interpreter fix](images/20230402172556.png)
 
 Dealt with `M: bad interpreter: No such file or directory"`issue and could solve it with the following command:
 
@@ -22,7 +22,7 @@ sed -i -e 's/\r$//' list-tables.sh
 ```
 Note: *The first line of my `schema-load` running python script was `#!/usr/bin/python3`.*
 
-![](20230402172716.png)
+![tables](images/20230402172716.png)
 
 Now I could change my `.py` files to `.sh`. Now i had only one table.
 
@@ -32,4 +32,20 @@ aws dynamodb delete-table --endpoint-url=http://localhost:8000\
     --output table
 ```
 
-![](20230402173454.png)
+![table](images/20230402173454.png)
+
+
+** steps to reproduce this**
+
+```bash
+./setup.sh 
+cd ../ddb/
+./drop.sh cruddur-messages
+./schema-load.sh 
+./list-tables.sh
+./seed.sh
+```
+
+
+![seed](images/20230402200212.png)
+
