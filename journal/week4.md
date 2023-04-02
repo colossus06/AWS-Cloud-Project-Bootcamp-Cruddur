@@ -200,4 +200,14 @@ select * from users;
 
 ![image](https://user-images.githubusercontent.com/96833570/226624094-c7e1a845-d91b-4f89-8870-6a5de8c5338d.png)
 
+## Creating Activities
+
+I worked log time to debug `No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.` I could create activity for my user with the help of flask-cors documentation on localhost.
+
+![image](https://user-images.githubusercontent.com/96833570/229313459-f075a798-ee00-4352-9b6b-7dc26799e6b5.png)
+
+
+![image](https://user-images.githubusercontent.com/96833570/229313551-b0e92032-c2cc-4d2f-b0a7-78b2667b1e77.png)
+
+
 
