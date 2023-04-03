@@ -55,3 +55,16 @@ List cognito users :
 ```bash
 aws cognito-idp list-users --user-pool-id congito-pool-id --limit 5
 ```
+
+## Implement dynamodb into backend
+
+
+I am so happy to implement conversations. I had to debug various errors before getting messages on UI. Such as the following:
+
+* `NoCredentialsError: Unable to locate credentials boto3`
+* `python OSError: [Errno 12] Cannot allocate memory:`
+
+
+![](20230403190511.png)
+
+To solve the above errors added 2G to swap and configured aws credentials on the container level.

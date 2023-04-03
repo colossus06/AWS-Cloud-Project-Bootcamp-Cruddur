@@ -137,3 +137,5 @@ __pycache__/
 /backend-flask/bin/db/
 /scripts-personal/*.sh
 /env
+
+docker-compose.yml
