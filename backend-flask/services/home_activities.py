@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, timezone
-from opentelemetry import trace
+
 
 from lib.db import db
 
