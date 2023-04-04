@@ -8,8 +8,8 @@ services:
       FRONTEND_URL: "http://localhost:3000"
       BACKEND_URL: "http://localhost:4567"
       AWS_DEFAULT_REGION: "us-east-1"
-      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_COGNITO_USER_POOL_ID: "us-east-1_JtCLJk9pn"
       AWS_COGNITO_USER_POOL_CLIENT_ID: "oq199bt1i98d8fm471d8i32u4"
     build: ./backend-flask

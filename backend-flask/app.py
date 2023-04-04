@@ -3,6 +3,9 @@ from flask import request
 from flask_cors import CORS, cross_origin
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from services.users_short import *
 from services.home_activities import *
@@ -21,10 +24,6 @@ from time import strftime
 import os
 from flask import got_request_exception
 
-
-AWS_DEFAULT_REGION=os.getenv("AWS_DEFAULT_REGION")
-AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
 
 
 app = Flask(__name__)

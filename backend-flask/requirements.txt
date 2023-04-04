@@ -15,3 +15,4 @@ psycopg2-pool
 boto3
 python-dateutil
 momento
+python-dotenv
