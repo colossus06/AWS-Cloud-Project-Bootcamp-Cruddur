@@ -1,4 +1,4 @@
-FROM node:16.19.1
+FROM 023175542133.dkr.ecr.us-east-1.amazonaws.com/cruddur-react-js:16.19.1
 
 ENV PORT=3000
 

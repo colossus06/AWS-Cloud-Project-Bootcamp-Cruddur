@@ -2,6 +2,13 @@
 
 ## Summary
 
+This week:
+
+* Worked with Dynamodb local and prod one table cruddur-messages.
+* Implemented Pattern Scripts for crud operations of conversations. 
+* Setup DynamoDB stream trigger to update message groups.
+* Created a Python lambda function and logged the events with CloudWatch.
+
 ### Environment
 
 * Windows 10 -wsl
@@ -65,11 +72,11 @@ I am so happy to implement conversations. I had to debug various errors before g
 * `python OSError: [Errno 12] Cannot allocate memory:`
 
 
-![](20230403190511.png)
+![](images/20230403190511.png)
 
 To solve the above errors added 3G to swap and use dotenv for my environment secrets. I was able to create direct messages now.
 
-![](20230404091947.png)
+![](images/20230404091947.png)
 
 ## Setup DynamoDB Stream
 
@@ -82,7 +89,7 @@ I created a ddb table and vpc endpoint for dynamodb:
 ```
 
 
-![](20230404092728.png)
+![](images/20230404092728.png)
 
 
 Created a lambda function and attached `AWSLambdaInvocation-DynamoDB` and `AmazonDynamoDBFullAccess` permissions for my lambda to invoke ddb.
@@ -91,12 +98,12 @@ Then commented out the local ddb url and run docker-compose down and up. I tried
 
 
 
-![](20230404105921.png)
+![](images/20230404105921.png)
 
-![](20230404105941.png)
+![](images/20230404105941.png)
 
 Here are my items returned:
 
-![](20230404110731.png)
+![](images/20230404110731.png)
 
 I think I've learned a lot. Happy to finish this week🙋‍♂️!

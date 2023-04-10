@@ -139,4 +139,6 @@ __pycache__/
 /env
 
 docker-compose.yml
-
+/aws/
+docker/**/*
+frontend-react-js/build/*

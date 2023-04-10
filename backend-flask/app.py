@@ -47,6 +47,10 @@ cors = CORS(
   # supports_credentials=True
 )
 
+#week 6 endpoint for health check
+@app.route('/api/health-check')
+def health_check():
+  return {'success': True}, 200
 
 
 @app.route("/api/message_groups", methods=['GET'])
