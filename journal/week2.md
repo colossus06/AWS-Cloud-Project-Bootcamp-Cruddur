@@ -6,9 +6,9 @@
 Week 2 in a nutshell:
 
 * Integrated Open Telemetry (OTEL)  with backend using Honeycomb and monitored traces.
-* Integrated AWS X-Ray and X-Ray daemon within docker-compose, and monitored traces.
-* Integrated Rollbar and triggered an error an observe an error with Rollbar
-* Lastly installed WatchTower and wrote a custom logger. Monitored with CloudWatch.
+* Integrated AWS X-Ray and X-Ray daemon within docker-compose, monitored traces.
+* Integrated Rollbar,triggered an error and observe with Rollbar
+* Lastly installed WatchTower and wrote and monitored a custom logger with CloudWatch.
 
 
 This week i worked with completely new tools and domains such as OTEL, AWS X-Ray, honeycomb, WatchTower, Rollbar.

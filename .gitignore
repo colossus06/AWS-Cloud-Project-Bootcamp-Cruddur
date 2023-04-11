@@ -142,3 +142,8 @@ docker-compose.yml
 /aws/
 docker/**/*
 frontend-react-js/build/*
+
+frontend-react-js.env
+backend-flask.env
+dynamo.env
+all.env

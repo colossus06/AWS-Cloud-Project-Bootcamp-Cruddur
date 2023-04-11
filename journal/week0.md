@@ -4,13 +4,14 @@
 
 ### Summary: 
 
-Aws cli, budget, meter-billing:
+This week I worked on the following:
 
+Aws cli, budget, meter-billing:
 * I installed and configured aws cli using gitpod.yml
 * Calculated the monthly/yearly budget of t2.micro
 * Created a budget, sns topic and alarm on via UI and CLI
 
-Architectural design, EventBridge
+Architectural design, EventBridge:
 * Recreated the logical diagram of cruddur on lucid.app
 * I created an sns topic and enabled email subscription to track service health issue using EventBridge.
 

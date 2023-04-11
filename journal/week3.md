@@ -1,11 +1,15 @@
 # Week 3 — Decentralized Authentication
 
+
 Summary:
+
+This week I worked on the following:
 
 * Installed and configured Amplify client-side library for Amazon Congito
 * Implemented API calls to Amazon Coginto for custom login, signup, recovery and forgot password page
 * Showed conditional elements and data based on logged in or logged out
 
+<br>
 
 Started this week with a quick hands-on before the week3 video.
 

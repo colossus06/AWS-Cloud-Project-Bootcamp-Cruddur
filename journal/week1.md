@@ -7,17 +7,14 @@
 
 ### Summary
 
-Cruddur
+This week I worked on the following:
+
 * Cloned, containerized Application frontend/backend using dockerfiles  and `docker-compose.yml`.
 * Created `/api/activities/notifications` endpoint in flask
 * Wrote notifications page in react
-
-DB
 * Installed postgressql client to gitpod
 * Run, ensure DynamoDB Local Container and Postgres works.
-
-Homework Challenges
-* Run cruddur locally but couldn't integrate backend with frontend
+* Run cruddur locally and integrated backend with frontend
 * Implement a healthcheck using wget in Docker compose file
 * Created a multistage dockerfile for a simple react app, containerized and pushed to dockerhub
 * Pulled this image and run on aws ec2

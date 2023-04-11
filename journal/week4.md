@@ -3,7 +3,7 @@
 ## Summary
 
 
-This week my code was broke for 2 weeks. I could manage to overcome cors and sql issues and create activity as the last step of this week.
+This week my code was broken for 2 weeks. I could manage to overcome cors, sql issues and create activity as the last step of this week.
 * Provisioned and connected to an RDS instance 
 * Wrote script to update a security group rule and database operations
 * Worked with UUIDs and PSQL extensions and schema sql file.
