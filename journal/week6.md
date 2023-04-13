@@ -14,11 +14,11 @@ This week i worked on the following and wrote an article on linkedin covering th
 I edited dockerfiles to pull from ecr and verified newly created endpoint.
 
 
-![](20230404181101.png)
+![](images/20230404181101.png)
 
 
 Debugging: `nsoleLogger.ts:105 [ERROR] 39:36.527 AuthError - 
             Error: Amplify has not been configured correctly. 
  ` error:
 
-![](20230411214359.png)
+![](images/20230411214359.png)
