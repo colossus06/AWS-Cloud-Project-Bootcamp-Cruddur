@@ -27,7 +27,7 @@ Dealt with `M: bad interpreter: No such file or directory"`issue and could solve
 sed -i -e 's/\r$//' list-tables.sh
 ./list-tables.sh
 ```
-Note: *The first line of my `schema-load` running python script was `#!/usr/bin/python3`.*
+Note: *The first line of my `schema-load` running python script was `#!/usr/bin/python`.*
 
 ![tables](images/20230402172716.png)
 

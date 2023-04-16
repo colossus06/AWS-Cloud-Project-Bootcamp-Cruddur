@@ -6,7 +6,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=ada
-      - DB_HOST=localhost
     networks:
       - ada-net
     volumes: 

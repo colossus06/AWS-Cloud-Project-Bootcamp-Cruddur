@@ -1,0 +1,5 @@
+#! /usr/bin/bash
+aws elbv2 create-load-balancer \
+    --name cruddur-alb \
+    ----security-groups cruddur-alb-sg \
+    --subnets subnet-0b7ef467326367f9f subnet-0fddd94ba79cf1b1f

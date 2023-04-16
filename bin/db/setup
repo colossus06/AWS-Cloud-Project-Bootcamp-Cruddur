@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 set -e # stop if it fails at any point
 
 CYAN='\033[1;36m'

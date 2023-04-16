@@ -39,7 +39,7 @@ And run the api on `/api/activities/home` endpoint:
 cd backend-flask
 export FRONTEND_URL="*"
 export BACKEND_URL="*"
-python3 -m flask run --host=0.0.0.0 --port=8000
+python -m flask run --host=0.0.0.0 --port=8000
 ```
 
 ![image](https://user-images.githubusercontent.com/96833570/220427575-ed48df84-31ba-42ff-b81f-c4b791a8259d.png)

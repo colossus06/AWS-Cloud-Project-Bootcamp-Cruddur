@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM 023175542133.dkr.ecr.us-east-1.amazonaws.com/cruddur-python:3.10-slim-buster
 
 # Inside Container
 # make a new folder inside container
@@ -9,7 +9,7 @@ WORKDIR /backend-flask
 COPY requirements.txt requirements.txt
 
 # Inside Container
-# Install the python libraries used for the app
+# Install the python3 libraries used for the app
 RUN pip3 install -r requirements.txt
 
 # Outside Container -> Inside Container

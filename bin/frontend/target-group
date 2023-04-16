@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+aws elbv2 create-target-group \
+    --name cruddur-backend-flask-tg \
+    --protocol HTTP \
+    --port 4567 \
+    --health-check-path /api/health-check \
+    --healthy-threshold-count 3 \
+    --target-type instance \
+    --vpc-id vpc-3ac0fb5f
