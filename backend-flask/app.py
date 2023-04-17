@@ -32,8 +32,12 @@ cognito_jwt_token = CognitoJwtToken(
 
 
 
-frontend = "http://localhost:3000"
-backend = "http://localhost:4567"
+frontend = "https://app.devtechops.dev:3000"
+backend = "https://api.app.devtechops.dev:4567"
+
+# frontend = os.getenv('FRONTEND_URL')
+# backend = os.getenv('BACKEND_URL')
+
 origins = [frontend, backend]
 cors = CORS(
   app, 

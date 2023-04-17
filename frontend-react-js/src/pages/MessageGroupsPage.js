@@ -13,7 +13,7 @@ export default function MessageGroupsPage() {
 
   const loadData = async () => {
     try {
-      const backend_url = `http://localhost:4567/api/message_groups`
+      const backend_url = `https://api.app.devtechops.dev/api/message_groups`
       const res = await fetch(backend_url, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`

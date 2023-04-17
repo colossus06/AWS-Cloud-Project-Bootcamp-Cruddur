@@ -71,6 +71,6 @@ My backend was on another subdomain:
 
 Note: Before deploying to ecs:
 
-* chage http://localhost:4567 in src to ${process.env.REACT_APP_BACKEND_URL} and vice versa for local. I will try to solve this issue along the way. Otherwise all domains seem as localhost:3000
+* chage http://localhost:4567 in src to http://localhost:4567 and vice versa for local. I will try to solve this issue along the way. Otherwise all domains seem as localhost:3000
 
 ![](images/20230416160613.png)

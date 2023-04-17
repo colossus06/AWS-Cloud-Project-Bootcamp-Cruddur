@@ -17,7 +17,7 @@ export default function ActivityForm(props) {
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const backend_url = `http://localhost:4567/api/activities`
+      const backend_url = `https://api.app.devtechops.dev/api/activities`
       console.log('onsubmit payload', message)
       const res = await fetch(backend_url, {
         method: "POST",

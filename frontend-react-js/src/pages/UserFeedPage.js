@@ -21,7 +21,7 @@ export default function UserFeedPage() {
 
   const loadData = async () => {
     try {
-      const backend_url = `http://localhost:4567/api/activities/${title}`
+      const backend_url = `https://api.app.devtechops.dev/api/activities/${title}`
       const res = await fetch(backend_url, {
         method: "GET"
       });

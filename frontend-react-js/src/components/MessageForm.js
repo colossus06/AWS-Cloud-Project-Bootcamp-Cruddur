@@ -17,7 +17,7 @@ export default function ActivityForm(props) {
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const backend_url = `http://localhost:4567/api/messages`
+      const backend_url = `https://api.app.devtechops.dev/api/messages`
       console.log('onsubmit payload', message)
       let json = { 'message': message }
       if (params.handle) {

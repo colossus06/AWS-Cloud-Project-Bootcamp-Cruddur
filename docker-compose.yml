@@ -14,8 +14,10 @@ services:
   backend-flask:
     environment:
       CONNECTION_URL: "postgresql://postgres:ada@db:5432/cruddur"
-    env_file:
-      - .env
+      BACKEND_URL: "http://localhost:4567"
+      FRONTEND_URL: "http://localhost:3000"
+    # env_file:
+    #   - .env
     build: ./backend-flask 
     depends_on:      
       - db 
@@ -26,6 +28,8 @@ services:
     volumes:
       - ./backend-flask:/backend-flask
   frontend-react-js:
+    # env_file:
+    #   - .env
     environment:
       REACT_APP_BACKEND_URL: "http://localhost:4567"
       REACT_APP_AWS_PROJECT_REGION: "us-east-1"

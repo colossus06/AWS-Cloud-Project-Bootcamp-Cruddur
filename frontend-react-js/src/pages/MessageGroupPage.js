@@ -18,7 +18,7 @@ export default function MessageGroupPage() {
 
   const loadMessageGroupsData = async () => {
     try {
-      const backend_url = `http://localhost:4567/api/message_groups`
+      const backend_url = `https://api.app.devtechops.dev/api/message_groups`
       const res = await fetch(backend_url, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`
@@ -38,7 +38,7 @@ export default function MessageGroupPage() {
 
   const loadMessageGroupData = async () => {
     try {
-      const backend_url = `http://localhost:4567/api/messages/${params.message_group_uuid}`
+      const backend_url = `https://api.app.devtechops.dev/api/messages/${params.message_group_uuid}`
       const res = await fetch(backend_url, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`

@@ -20,7 +20,7 @@ export default function NotificationsFeedPage() {
 
   const loadData = async () => {
     try {
-      const backend_url = `http://localhost:4567/api/activities/notifications`
+      const backend_url = `https://api.app.devtechops.dev/api/activities/notifications`
       const res = await fetch(backend_url, {
         method: "GET"
       });
