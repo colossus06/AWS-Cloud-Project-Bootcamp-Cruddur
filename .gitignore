@@ -2,3 +2,6 @@ docker/**/*
 frontend-react-js/build/*
 *.env
 node_modules
+frontend-react-js/node_modules/
+.env.example
+
