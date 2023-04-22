@@ -65,7 +65,3 @@ networks:
   ada-net:
     driver: bridge
     name: ada-net
-
-volumes:
-  db:
-    driver: local

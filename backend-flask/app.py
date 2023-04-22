@@ -25,19 +25,15 @@ from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVe
 app = Flask(__name__)
 
 cognito_jwt_token = CognitoJwtToken(
-  user_pool_id="us-east-1_JtCLJk9pn", 
-  user_pool_client_id="oq199bt1i98d8fm471d8i32u4",
-  region="us-east-1"
+  user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
+  user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
+  region=os.getenv("AWS_DEFAULT_REGION")
 )
 
 
 
-frontend = "https://app.devtechops.dev:3000"
-backend = "https://api.app.devtechops.dev:4567"
-
-# frontend = os.getenv('FRONTEND_URL')
-# backend = os.getenv('BACKEND_URL')
-
+frontend = os.getenv('FRONTEND_URL')
+backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
 cors = CORS(
   app, 
@@ -48,11 +44,9 @@ cors = CORS(
 )
 
 
-
 @app.route('/api/health-check')
 def health_check():
   return {'success': True}, 200
-
 
 
 @app.route("/api/message_groups", methods=['GET'])
@@ -137,7 +131,7 @@ def data_create_message():
 
 
 @app.route("/api/activities/home", methods=['GET'])
-
+#@xray_recorder.capture('activities_home')
 def data_home():
   access_token = extract_access_token(request.headers)
   try:
@@ -160,7 +154,6 @@ def data_notifications():
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
-
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
@@ -181,7 +174,7 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = 'simo'
+  user_handle  = 'andrewbrown'
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)
@@ -200,7 +193,7 @@ def data_show_activity(activity_uuid):
 @app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities_reply(activity_uuid):
-  user_handle  = 'simo'
+  user_handle  = 'andrewbrown'
   message = request.json['message']
   model = CreateReply.run(message, user_handle, activity_uuid)
   if model['errors'] is not None:
@@ -214,5 +207,36 @@ def data_users_short(handle):
   data = UsersShort.run(handle)
   return data, 200
 
+@app.route("/api/profile/update", methods=['POST','OPTIONS'])
+@cross_origin()
+def data_update_profile():
+  bio          = request.json.get('bio',None)
+  display_name = request.json.get('display_name',None)
+  access_token = extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.verify(access_token)
+    cognito_user_id = claims['sub']
+    model = UpdateProfile.run(
+      cognito_user_id=cognito_user_id,
+      bio=bio,
+      display_name=display_name
+    )
+    if model['errors'] is not None:
+      return model['errors'], 422
+    else:
+      return model['data'], 200
+  except TokenVerifyError as e:
+    # unauthenicatied request
+    app.logger.debug(e)
+    return {}, 401
+
+
+@app.route("/api/users/@<string:handle>/short", methods=['GET'])
+def data_users_short(handle):
+  data = UsersShort.run(handle)
+  return data, 200
+
+if __name__ == "__main__":
+  app.run(debug=True)
 if __name__ == "__main__":
   app.run(debug=True)

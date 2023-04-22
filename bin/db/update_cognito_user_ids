@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-
+import boto3
 import os
 import sys
-import boto3
 
 print("== db-update-cognito-user-ids")
 
 current_path = os.path.dirname(os.path.abspath(__file__))
-parent_path = os.path.abspath(os.path.join(current_path, '..', '..'))
+parent_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask'))
 sys.path.append(parent_path)
 from lib.db import db
 

@@ -4,13 +4,6 @@
   "desiredCount": 1,
   "enableECSManagedTags": true,
   "enableExecuteCommand": true,
-  "loadBalancers": [
-    {
-        "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:023175542133:targetgroup/frontend-tg/b66b8f93c5526f34",
-        "containerName": "frontend-react-js",
-        "containerPort": 3000
-    }
- ],
   "networkConfiguration": {
     "awsvpcConfiguration": {
       "assignPublicIp": "ENABLED",

@@ -150,3 +150,18 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
   }
   */
 }
+
+  /*
+  createPolicySnSPublish(topicArn: string){
+    const snsPublishPolicy = new iam.PolicyStatement({
+      actions: [
+        'sns:Publish',
+      ],
+      resources: [
+        topicArn
+      ]
+    });
+    return snsPublishPolicy;
+  }
+  */
+}

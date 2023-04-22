@@ -1,4 +1,5 @@
 import './App.css';
+import './components/Popup.css';
 
 import HomeFeedPage from './pages/HomeFeedPage';
 import NotificationsFeedPage from './pages/NotificationsFeedPage';
@@ -19,15 +20,17 @@ import {
 import { Amplify } from 'aws-amplify';
 
 Amplify.configure({
-  "AWS_PROJECT_REGION": "us-east-1",
-  "aws_cognito_region": "us-east-1",
-  "aws_user_pools_id": "us-east-1_JtCLJk9pn",
-  "aws_user_pools_web_client_id": "oq199bt1i98d8fm471d8i32u4",
+  "AWS_PROJECT_REGION": process.env.REACT_APP_AWS_PROJECT_REGION,
+  "aws_cognito_region": process.env.REACT_APP_AWS_COGNITO_REGION,
+  "aws_user_pools_id": process.env.REACT_APP_AWS_USER_POOLS_ID,
+  "aws_user_pools_web_client_id": process.env.REACT_APP_CLIENT_ID,
   "oauth": {},
   Auth: {
-    region: "us-east-1", 
-    userPoolId: "us-east-1_JtCLJk9pn",
-    userPoolWebClientId: "oq199bt1i98d8fm471d8i32u4",
+    // We are not using an Identity Pool
+    // identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID, // REQUIRED - Amazon Cognito Identity Pool ID
+    region: process.env.REACT_APP_AWS_PROJECT_REGION,           // REQUIRED - Amazon Cognito Region
+    userPoolId: process.env.REACT_APP_AWS_USER_POOLS_ID,         // OPTIONAL - Amazon Cognito User Pool ID
+    userPoolWebClientId: process.env.REACT_APP_CLIENT_ID,   // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
   }
 });
 
