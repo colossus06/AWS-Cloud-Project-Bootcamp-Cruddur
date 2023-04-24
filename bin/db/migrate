@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import os
 import sys
@@ -12,6 +12,7 @@ parent_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-fla
 sys.path.append(parent_path)
 from lib.db import db
 
+print("starting")
 def get_last_successful_run():
   sql = """
     SELECT last_successful_run
@@ -42,9 +43,10 @@ for migration_file in migration_files:
   match = re.match(r'^\d+', filename)
   if match:
     file_time = int(match.group())
-    if last_successful_run <= file_time:
+    if int(last_successful_run) <= file_time:
       mod = importlib.import_module(module_name)
       print('=== running migration: ',module_name)
       mod.migration.migrate()
       timestamp = str(time.time()).replace(".","")
       last_successful_run = set_last_successful_run(timestamp)
+      print("done")

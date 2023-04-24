@@ -1,7 +1,7 @@
 UPDATE public.users 
 SET 
-  bio = %(bio)s,
-  display_name= %(display_name)s
+  bio = "i like tech"
+  display_name= "simo"
 WHERE 
   users.cognito_user_id = %(cognito_user_id)s
 RETURNING handle;

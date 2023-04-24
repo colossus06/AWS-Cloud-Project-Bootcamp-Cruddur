@@ -8,5 +8,12 @@ TASK_DEF_PATH="$PROJECT_PATH/aws/task-definitions/backend-flask.json"
 
 echo $TASK_DEF_PATH
 
-aws ecs register-task-definition \
---cli-input-json "file://$TASK_DEF_PATH"
+aws ecs register-task-definition --cli-input-json "file://$TASK_DEF_PATH"
+
+# aws ecs register-task-definition --cli-input-json file://backend-flask.json
+
+# aws ecs register-task-definition --cli-input-json file://frontend-react-js.json
+
+
+# aws ecs create-service --cli-input-json file://aws/json/service-backend-flask.json
+# aws ecs create-service --cli-input-json file://aws/json/service-frontend-react-js.json

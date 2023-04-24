@@ -1,6 +1,6 @@
 # Week 8 — Serverless Image Processing
 
-This week I implemented on the following:
+This week I worked on the following:
 
 * CDK Stack	
 * Configuring and serving avatars via CloudFront	
@@ -8,11 +8,19 @@ This week I implemented on the following:
 * Users Profile Form	
 * Backend Migrations	
 * Presigned URL generation via Ruby Lambda	
-* HTTP API Gateway with Lambda Authorizer	
-* Creating JWT Lambda Layer	
-* Rendering Avatars in App via CloudFront
 
 
+
+```sh
+mkdir thumbing-serverless-cdk 
+cd thumbing-serverless-cdk 
+npm install aws-cdk -g
+cdk init app --language typescript
+npm install @types/node --save-dev // because i couldn't get the the node typings.
+npm install dotenv
+cdk synth
+cdk deploy
+```
 
 
 First, I started with previewing the changes ad bootstrapping the environment.
@@ -45,3 +53,15 @@ Coming to CloudFront, i realized that my environment variables aren't set correc
 Upload the data.jpg fiel and served with Cloudfront.
 
 ![](20230418004216.png)
+
+**migrations**
+
+`./migration add_bio_column`
+
+![](20230424162343.png)
+
+Current status of the app is as shown below:
+
+![](20230424170802.png)
+
+

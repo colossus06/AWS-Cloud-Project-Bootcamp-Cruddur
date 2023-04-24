@@ -41,9 +41,9 @@
       },
       "environment": [
         {"name": "AWS_COGNITO_USER_POOL_ID", "value": "us-east-1_ivaiOF1U4c"},
-        {"name": "AWS_COGNITO_USER_POOL_CLIENT_ID", "value": "55n59iln4a8pra9nnr0r2qe74qd"},
-        {"name": "FRONTEND_URL", "value": "*"},
-        {"name": "BACKEND_URL", "value": "*"},
+        {"name": "AWS_COGNITO_USER_POOL_CLIENT_ID", "value": "5n59iln4a8pra9nnr0r2qe74qd"},
+        {"name": "FRONTEND_URL", "value": "app.devtechops.dev"},
+        {"name": "BACKEND_URL", "value": "api.app.devtechops.dev"},
         {"name": "AWS_DEFAULT_REGION", "value": "us-east-1"}
       ],
       "secrets": [

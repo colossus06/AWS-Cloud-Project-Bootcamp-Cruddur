@@ -26,4 +26,4 @@ docker run --rm \
 #  --env AWS_SECRET_ACCESS_KEY="mFdYytLz5rAhB8OCCKDIm9bKbct0t9kSvbGuTZ82" \
 #  --env ROLLBAR_ACCESS_TOKEN="ca8cde9275fe48c69c6eaa7cf504cdf0" \
 #  --env AWS_COGNITO_USER_POOL_ID="us-east-1_ivaiOF1U4c" \
-#  --env AWS_COGNITO_USER_POOL_CLIENT_ID="55n59iln4a8pra9nnr0r2qe74qd"    \
+#  --env AWS_COGNITO_USER_POOL_CLIENT_ID="5n59iln4a8pra9nnr0r2qe74qd"    \
